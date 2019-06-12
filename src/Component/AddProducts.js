@@ -7,7 +7,6 @@ import M from 'materialize-css'
 
 
 class AddProducts extends Component{
-
   state={
     form:{}
   }
@@ -40,11 +39,9 @@ class AddProducts extends Component{
     console.log("%c form ", "color:orange", form)
   }
 
-
     componentWillMount() {
       M.AutoInit()
     }
-
 
   render() {
     return(

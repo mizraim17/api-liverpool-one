@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar,NavItem,Icon} from 'react-materialize'
+import {Navbar,NavItem} from 'react-materialize'
 
 const NavbarMain= () => {
   return(
@@ -11,8 +11,7 @@ const NavbarMain= () => {
           </a>
         }
         className="color-liv1"
-        alignLinks="right"   left>
-
+        alignLinks="right"  >
         <NavItem href="/addProduct">
           Agregar productos
         </NavItem>

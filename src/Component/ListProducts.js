@@ -16,17 +16,16 @@ class  ListProducts extends Component{
   getProducts=()=>{
 
     axios.get("http://localhost:3005/api/product")
-      .then((res)=>{
-        console.log("res request", res.data)
-        this.setState({products:res.data})
+    .then((res)=>{
+      console.log("res request", res.data)
+      this.setState({products:res.data})
 
-        this.setState({loading:false})
-      })
+      this.setState({loading:false})
+    })
 
-      .catch((err)=>{
-        console.log(err)
-      })
-
+    .catch((err)=>{
+      console.log(err)
+    })
   }
 
   deleteProduct=(e)=>{
@@ -111,12 +110,10 @@ class  ListProducts extends Component{
                       <Button className="liv-red" id={el._id} onClick={this.deleteProduct}> borrar</Button>
                       <Button  href="#modal1" className="modal-trigger" id={el._id} onClick={this.handleId}> editar</Button>
                     </Col>
-
                   )
                 })
-                :<h3>Aún no tienes productos para mostrar</h3>
+              :<h3>Aún no tienes productos para mostrar</h3>
             }
-
             <Modal id="modal1" header="Editar Productos">
               <div>
                 <form onSubmit={this.submitEdit}>
@@ -141,7 +138,6 @@ class  ListProducts extends Component{
                   </div>
                 </form>
               </div>
-
             </Modal>
           </Row>
         }
@@ -149,7 +145,5 @@ class  ListProducts extends Component{
     )
   }
 }
-
-
 
 export default ListProducts
