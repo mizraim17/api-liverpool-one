@@ -1,13 +1,14 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import {Card,Col,Row,CardTitle, Button,Modal} from 'react-materialize'
+import {Card,Col,Row,CardTitle, Button,Modal,TextInput} from 'react-materialize'
 import '../css/listProduct.css'
 import NavbarSecondary from "./NavbarSecondary";
 import  M from 'materialize-css'
 class  ListProducts extends Component{
 
   state={
-    products:""
+    products:"",
+    form:{},idProductEdit:""
   }
 
   getProducts=()=>{
@@ -38,6 +39,32 @@ class  ListProducts extends Component{
     this.getProducts()
   }
 
+  handleform=(e)=>{
+    let {form} =this.state;
+
+    let {name,value}=e.target;
+    form[name]= value;
+    console.log("campos",form)
+    this.setState({  form});
+  }
+
+  submitEdit = ()=>{
+    let {idProductEdit,form}=this.state;
+    console.log("idProductEdit",idProductEdit)
+    axios.put(`http://localhost:3005/api/product/${idProductEdit}`,form)
+      .then((res)=>{
+        console.log("res edit",res.data)
+        this.getProducts()
+      })
+      .catch(err=>console.log(err))
+  }
+
+  handleId=(e)=>{
+    let {idProductEdit}=this.state
+    idProductEdit=e.target.id;
+    this.setState({idProductEdit})
+  }
+
   render() {
     let {products}= this.state;
     return(
@@ -53,7 +80,8 @@ class  ListProducts extends Component{
                     key={i}
                     className='small'
                     header={
-                      <CardTitle  className="txtcard responsive-img" image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS0JquDcM1LE2U18FaUqyw4uD6p9eze0cMerG6xvwQboQZZ_bJlTbeEOrM_BwBsD4BqziXk-sWIkXnE0obTadYJ4JKxnPPu_1cEj1UkwBHqVQbBh7oNV4l2&usqp=CAc">
+                      <CardTitle  className="txtcard small"  >
+                        <img className="responsive-img" src={el.image} alt=""/>
                       </CardTitle>
                     }
                     actions={
@@ -64,23 +92,40 @@ class  ListProducts extends Component{
                     }>
                   </Card>
                   <Button className="liv-red" id={el._id} onClick={this.deleteProduct}> borrar</Button>
-                  <Button className="liv-dark" id={el._id} onClick={this.deleteProduct}> edit</Button>
+                  <Button  href="#modal1" className="modal-trigger" id={el._id} onClick={this.handleId}> editar</Button>
                 </Col>
 
             )
           })
           :<h3>Aún no tienes productos para mostrar</h3>
         }
-          <div>
-            <a href="#modal1" className="modal-trigger">
 
-              Show Modal
+        <Modal id="modal1" header="Modal Header">
+              <div>
+                <form onSubmit={this.submitEdit}>
+                  <TextInput
+                    s={12}
+                    name="name"
 
-            </a>
-            <Modal id="modal1" header="Modal Header">
-              Lorem ipsum dolor sit amet
-            </Modal>
-          </div>
+                    type="text"
+                    onChange={this.handleform}
+                    label="nombre del producto"
+                  />
+                  <TextInput
+                    s={12}
+                    name="price"
+
+                    type="number"
+                    onChange={this.handleform}
+                    label="precio"
+                  />
+                  <div>
+                    <Button  > editar</Button>
+                  </div>
+                </form>
+              </div>
+
+        </Modal>
       </Row>
       </>
     )

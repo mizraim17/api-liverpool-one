@@ -18,7 +18,7 @@ const NavbarSecondary= () => {
 
         </NavItem>
         <NavItem href="/addProduct">
-          Agregrar productos
+          Agregar productos
         </NavItem>
         <NavItem href="/listProduct">
           Mostrar Productos

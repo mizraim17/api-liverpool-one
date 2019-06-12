@@ -3,6 +3,7 @@ import {TextInput,Button,Row,Card } from 'react-materialize'
 import axios from "axios";
 import '../css/addProducts.css'
 import NavbarSecondary from "./NavbarSecondary";
+import M from 'materialize-css'
 
 class AddProducts extends Component{
 
@@ -16,21 +17,32 @@ class AddProducts extends Component{
 
     axios.post("http://localhost:3005/api/product",form)
     .then((res)=>{
-      console.log("%c pucho","color:blue",res.data)
+      window.Materialize.toast("El producto se ha agregado correctamente")
+      this.rebootForm()
+      console.log("%c pucho","color:blue",form)
     })
+  }
 
+  rebootForm=()=>{
+    let temPfor=document.getElementsByClassName("formu")
+    temPfor[0].value="";
+    temPfor[1].value="";
+    temPfor[2].value="";
   }
 
   handleChange= (e)=> {
-
     let {form} = this.state
-    let {name,value}= e.target
-    form[name]=value;
+    let {name, value} = e.target
+    form[name] = value;
 
     this.setState(form)
-    console.log("%c form ","color:orange", form)
-
+    console.log("%c form ", "color:orange", form)
   }
+
+
+    componentWillMount() {
+      M.AutoInit()
+    }
 
 
   render() {
@@ -42,25 +54,25 @@ class AddProducts extends Component{
             <Row className="container">
             <form onSubmit={this.getSubmit} >
               <TextInput
-                className="conEm"
+                className="formu"
                 s={12} m={4}
                 name="name"
                 onChange={this.handleChange}
                 label="Nombre del producto"
               />
               <TextInput
-                className="conEm"
+                className="formu"
                 s={12} m={4}
                 name="price"
                 onChange={this.handleChange}
                 label="Precio"
               />
               <TextInput
-                className="conEm"
+                className="formu"
                 s={12} m={4}
                 name="image"
                 onChange={this.handleChange}
-                label="recio"
+                label="pega la url de tu imagen"
               />
               <div>
                 <Button className="color-liv2">

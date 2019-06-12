@@ -14,7 +14,7 @@ const NavbarMain= () => {
         alignLinks="right"   left>
 
         <NavItem href="/addProduct">
-          Agregrar productos
+          Agregar productos
         </NavItem>
         <NavItem href="/listProduct">
           Mostrar Productos
