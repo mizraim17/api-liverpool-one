@@ -6,7 +6,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "gh-pages": "^2.0.1",
+    "global": "^4.4.0",
     "materialize-css": "^1.0.0",
+    "now": "^15.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loader-spinner": "^2.3.0",
@@ -19,8 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "now-build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
