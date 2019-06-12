@@ -15,7 +15,7 @@ class AddProducts extends Component{
     e.preventDefault()
     let {form}= this.state
 
-    axios.post("http://localhost:3005/api/product",form)
+    axios.post("https://back-liverpool.herokuapp.com/api/product",form)
     .then((res)=>{
       window.Materialize.toast("El producto se ha agregado correctamente")
       this.rebootForm()

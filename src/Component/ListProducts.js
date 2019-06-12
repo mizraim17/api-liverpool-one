@@ -15,7 +15,7 @@ class  ListProducts extends Component{
 
   getProducts=()=>{
 
-    axios.get("http://localhost:3005/api/product")
+    axios.get("https://back-liverpool.herokuapp.com/api/product")
     .then((res)=>{
       console.log("res request", res.data)
       this.setState({products:res.data})
@@ -31,7 +31,7 @@ class  ListProducts extends Component{
   deleteProduct=(e)=>{
     let idProduct=e.target.id;
     console.log(e.target.id)
-    axios.delete(`http://localhost:3005/api/product/${idProduct}`)
+    axios.delete(`https://back-liverpool.herokuapp.com/api/product/${idProduct}`)
       .then((res)=>{
         console.log("res delete",res.data)
         this.getProducts()
