@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {TextInput,Button,Row } from 'react-materialize'
+import {TextInput,Button,Row,Card } from 'react-materialize'
 import NavbarMain from "./NavbarMain";
 import axios from "axios";
+import '../css/addProducts.css'
 
 class AddProducts extends Component{
 
@@ -36,30 +37,40 @@ class AddProducts extends Component{
     return(
       <>
         <NavbarMain/>
-        <Row className="container">
-          <form onSubmit={this.getSubmit} >
-            <TextInput
-              className="conEm"
-              s={12} m={3}
-              name="name"
-              onChange={this.handleChange}
-              label="Nombre del producto"
-            />
-            <TextInput
-              className="conEm"
-              s={12} m={3}
-              name="price"
-              onChange={this.handleChange}
-              label="precio"
-            />
-            <div>
-              <Button>
-                Guardar
-              </Button>
-            </div>
-          </form>
+        <Row className=" container padt">
+          <Card className="z-depth-3 ">
+            <Row className="container">
+            <form onSubmit={this.getSubmit} >
+              <TextInput
+                className="conEm"
+                s={12} m={4}
+                name="name"
+                onChange={this.handleChange}
+                label="Nombre del producto"
+              />
+              <TextInput
+                className="conEm"
+                s={12} m={4}
+                name="price"
+                onChange={this.handleChange}
+                label="Precio"
+              />
+              <TextInput
+                className="conEm"
+                s={12} m={4}
+                name="image"
+                onChange={this.handleChange}
+                label="recio"
+              />
+              <div>
+                <Button className="color-liv2">
+                  Guardar
+                </Button>
+              </div>
+            </form>
+          </Row>
+          </Card>
         </Row>
-
       </>
 
     )
