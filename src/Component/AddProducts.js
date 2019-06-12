@@ -5,6 +5,7 @@ import '../css/addProducts.css'
 import NavbarSecondary from "./NavbarSecondary";
 import M from 'materialize-css'
 
+
 class AddProducts extends Component{
 
   state={

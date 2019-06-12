@@ -1,13 +1,8 @@
 import React,{Component} from 'react'
-import {Link} from "react-router-dom";
 import NavbarMain from "./NavbarMain";
 import '../css/navbar.css'
 import {Row,Col,Icon} from 'react-materialize'
 class Home extends Component{
-
-
-
-
   render() {
     return(
       <>

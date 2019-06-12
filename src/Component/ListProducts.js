@@ -1,26 +1,32 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import {Card,Col,Row,CardTitle, Button,Modal,TextInput} from 'react-materialize'
-import '../css/listProduct.css'
+import '../css/listProduct.css';
 import NavbarSecondary from "./NavbarSecondary";
-import  M from 'materialize-css'
+import  M from 'materialize-css';
+import Loader from "react-loader-spinner";
+
 class  ListProducts extends Component{
 
   state={
-    products:"",
+    products:"",loading:false,
     form:{},idProductEdit:""
   }
 
   getProducts=()=>{
+
     axios.get("http://localhost:3005/api/product")
       .then((res)=>{
         console.log("res request", res.data)
         this.setState({products:res.data})
+
+        this.setState({loading:false})
       })
 
       .catch((err)=>{
         console.log(err)
       })
+
   }
 
   deleteProduct=(e)=>{
@@ -35,6 +41,7 @@ class  ListProducts extends Component{
   }
 
   componentWillMount() {
+    this.setState({loading:true})
     M.AutoInit()
     this.getProducts()
   }
@@ -66,41 +73,51 @@ class  ListProducts extends Component{
   }
 
   render() {
-    let {products}= this.state;
+    let {products,loading}= this.state;
     return(
       <>
         <NavbarSecondary/>
-        <Row className="container pt">
         {
-          products?
-          products.map((el,i)=>{
-            return(
-                <Col m={3} s={12}  className="container  ">
-                  <Card
-                    key={i}
-                    className='small'
-                    header={
-                      <CardTitle  className="txtcard small"  >
-                        <img className="responsive-img" src={el.image} alt=""/>
-                      </CardTitle>
-                    }
-                    actions={
-                      <>
-                        <span className=" txt-name">{el.name}</span> <br/>
-                        <span className=" txt-price">{`$ ${el.price}`}</span>
-                      </>
-                    }>
-                  </Card>
-                  <Button className="liv-red" id={el._id} onClick={this.deleteProduct}> borrar</Button>
-                  <Button  href="#modal1" className="modal-trigger" id={el._id} onClick={this.handleId}> editar</Button>
-                </Col>
+          loading
+          ?
+          <Loader
+            type="Rings"
+            color="#ffffff"
+            height="400"
+            width="400"
+          />
+          :
+          <Row className="container pt">
+            {
+              products?
+                products.map((el,i)=>{
+                  return(
+                    <Col m={3} s={12}  className="container  ">
+                      <Card
+                        key={i}
+                        className='small'
+                        header={
+                          <CardTitle  className="txtcard small"  >
+                            <img className="responsive-img" src={el.image} alt=""/>
+                          </CardTitle>
+                        }
+                        actions={
+                          <>
+                            <span className=" txt-name">{el.name}</span> <br/>
+                            <span className=" txt-price">{`$ ${el.price}`}</span>
+                          </>
+                        }>
+                      </Card>
+                      <Button className="liv-red" id={el._id} onClick={this.deleteProduct}> borrar</Button>
+                      <Button  href="#modal1" className="modal-trigger" id={el._id} onClick={this.handleId}> editar</Button>
+                    </Col>
 
-            )
-          })
-          :<h3>Aún no tienes productos para mostrar</h3>
-        }
+                  )
+                })
+                :<h3>Aún no tienes productos para mostrar</h3>
+            }
 
-        <Modal id="modal1" header="Modal Header">
+            <Modal id="modal1" header="Editar Productos">
               <div>
                 <form onSubmit={this.submitEdit}>
                   <TextInput
@@ -125,8 +142,9 @@ class  ListProducts extends Component{
                 </form>
               </div>
 
-        </Modal>
-      </Row>
+            </Modal>
+          </Row>
+        }
       </>
     )
   }
