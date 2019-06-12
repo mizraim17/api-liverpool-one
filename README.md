@@ -1,3 +1,7 @@
+## Tienda en línea
+
+Este sistema ayuda a un administrador a hacer el CRUD completo de un artículo, contiene dos vistas una llamada ddProduct donde registra artículos y otra ListProduct donde lista los mismos y puede editar, borrar, se conecta con un backend que esta en el repositorio https://github.com/mizraim17/back-liverpool 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
