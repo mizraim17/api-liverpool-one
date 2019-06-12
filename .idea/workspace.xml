@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state relative-caret-position="112">
+              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -159,13 +159,13 @@
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/Router.js" />
         <option value="$PROJECT_DIR$/src/Component/NavbarSecondary.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/Component/AddProducts.js" />
         <option value="$PROJECT_DIR$/src/Component/Home.js" />
         <option value="$PROJECT_DIR$/src/Component/ListProducts.js" />
         <option value="$PROJECT_DIR$/src/Component/NavbarMain.js" />
         <option value="$PROJECT_DIR$/src/css/addProducts.css" />
         <option value="$PROJECT_DIR$/src/css/listProduct.css" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -262,18 +262,18 @@
       <workItem from="1560185539793" duration="3454000" />
       <workItem from="1560197835070" duration="7705000" />
       <workItem from="1560268286005" duration="1270000" />
-      <workItem from="1560305876696" duration="19314000" />
+      <workItem from="1560305876696" duration="19859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35241000" />
+    <option name="totallyTimeSpent" value="35786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1425" y="0" width="1301" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987593" visible="true" weight="0.18295543" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987593" visible="true" weight="0.18295543" />
       <window_info id="Structure" order="1" sideWeight="0.5012407" side_tool="true" weight="0.18295543" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -460,8 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        <state relative-caret-position="112">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
         </state>
       </provider>
     </entry>
