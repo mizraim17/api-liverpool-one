@@ -1,3 +1,29 @@
+body{
+    color: white;
+    background-color: #E799c2;
+}
+
 .pt{
     padding-top: 5%;
+}
+
+.liv-red{
+    background-color: #FF0000 !important;
+}
+
+.liv-dark{
+    background-color: #2f2f2f !important;
+}
+.liv-3{
+  background-color: #C81685;
+}
+
+.txt-name{
+    font-weight: bold;
+    color: #2f2f2f;
+}
+
+.txt-price{
+
+    color: #73737A;
 }

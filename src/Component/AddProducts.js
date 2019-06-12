@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {TextInput,Button,Row,Card } from 'react-materialize'
-import NavbarMain from "./NavbarMain";
 import axios from "axios";
 import '../css/addProducts.css'
+import NavbarSecondary from "./NavbarSecondary";
 
 class AddProducts extends Component{
 
@@ -36,7 +36,7 @@ class AddProducts extends Component{
   render() {
     return(
       <>
-        <NavbarMain/>
+        <NavbarSecondary/>
         <Row className=" container padt">
           <Card className="z-depth-3 ">
             <Row className="container">

@@ -1,18 +1,22 @@
 import React from 'react';
 import {Navbar,NavItem,Icon} from 'react-materialize'
+import "../css/navbar.css"
 
-const NavbarMain= () => {
+const NavbarSecondary= () => {
   return(
     <>
       <Navbar
         brand={
-          <a href="/" left>
-         Liverpool
+          <a href="/">
+            <Icon >
+              home
+            </Icon>
           </a>
         }
-        className="color-liv1"
-        alignLinks="right"   left>
+        alignLinks="right" className="color-liv3">
+        <NavItem href="get-started.html">
 
+        </NavItem>
         <NavItem href="/addProduct">
           Agregrar productos
         </NavItem>
@@ -24,4 +28,4 @@ const NavbarMain= () => {
   )
 }
 
-export default NavbarMain
+export default NavbarSecondary
